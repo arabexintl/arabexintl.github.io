@@ -659,6 +659,8 @@ textarea.input { min-height: 90px; resize: vertical; }
   @media (max-width: 860px) { .trust-row { grid-template-columns:repeat(2,auto); column-gap:24px !important; } }
   @media (max-width: 420px) { .trust-row { grid-template-columns:1fr; } }
   .hero-kw { display:block; margin:0 0 18px; font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--color-accent-2-700); }
+  .more-link { display:inline-block; margin-top:10px; font-size:14.5px; font-weight:600; color:var(--color-accent-2-700); border-bottom:1px solid currentColor; }
+  .more-link:hover { color:var(--color-accent-2); }
   @keyframes cspulse { 0%,100% { opacity:.3; } 50% { opacity:1; } }
   @keyframes cstrace { from { stroke-dashoffset:400; } to { stroke-dashoffset:0; } }
   @keyframes csbob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
@@ -809,7 +811,7 @@ textarea.input { min-height: 90px; resize: vertical; }
           <p data-i18n="fam1_p" style="font-size:15px;line-height:1.6;margin:12px 0 0;max-width:34ch;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Professional translation for official, legal, academic and religious use — handled by specialists in each field.</p>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 44px">
-          <div><h4 data-i18n="sub1_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Certificate &amp; document translation</h4><p data-i18n="sub1_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Birth, marriage and educational certificates, and all other official documents, translated professionally and accurately.</p></div>
+          <div><h4 data-i18n="sub1_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Certificate &amp; document translation</h4><p data-i18n="sub1_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Birth, marriage and educational certificates, and all other official documents, translated professionally and accurately.</p><a class="more-link" href="https://arabexinternational.com/certificate-translation/" data-i18n="sub1_more">Certificate translation in detail →</a></div>
           <div><h4 data-i18n="sub2_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Legal translation</h4><p data-i18n="sub2_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Contracts, affidavits and powers of attorney rendered in precise, court-ready terminology.</p></div>
           <div><h4 data-i18n="sub3_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Academic translation</h4><p data-i18n="sub3_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Transcripts, marksheets and research records prepared for admissions and verification abroad.</p></div>
           <div><h4 data-i18n="sub4_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Islamic &amp; religious content</h4><p data-i18n="sub4_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Khutbahs, religious texts and fatwas handled with the proper context and respect.</p></div>
@@ -1066,7 +1068,7 @@ class Component extends DCLogic {
     svc_p: 'من الشهادات الشخصية إلى طلبات العمل في الخارج، تُعامل كل كلمة بدقة وعناية. أرسل وثيقتك وسنرسل لك عرض سعر ثابتًا وسريعًا.',
     fam1_h3: 'الترجمة والترجمة الفورية', fam1_p: 'ترجمة احترافية للاستخدام الرسمي والقانوني والأكاديمي والديني — يتولاها متخصصون في كل مجال.',
     sub1_h4: 'ترجمة الشهادات والوثائق', sub1_p: 'شهادات الميلاد والزواج والشهادات التعليمية وجميع الوثائق الرسمية، مترجمة باحترافية ودقة.',
-    sub2_h4: 'الترجمة القانونية', sub2_p: 'العقود والإفادات ووكالات التوكيل، بمصطلحات دقيقة جاهزة للاستخدام القانوني.',
+    sub1_more: 'تفاصيل ترجمة الشهادات ←', sub2_h4: 'الترجمة القانونية', sub2_p: 'العقود والإفادات ووكالات التوكيل، بمصطلحات دقيقة جاهزة للاستخدام القانوني.',
     sub3_h4: 'الترجمة الأكاديمية', sub3_p: 'كشوف الدرجات والسجلات الأكاديمية والبحثية، مُعدّة للقبول الجامعي والتصديق في الخارج.',
     sub4_h4: 'المحتوى الإسلامي والديني', sub4_p: 'الخطب والنصوص الدينية والفتاوى، تُعامل بالسياق والاحترام المناسبين.',
     sub5_h4: 'الترجمة المرئية للأفلام والمحتوى الإعلامي', sub5_p: 'ترجمة مرئية إلى العربية لمحتوى بأي لغة، وبأي لغة للمحتوى العربي — للفيديوهات والأفلام الوثائقية وغيرها من المحتوى الإعلامي.',
