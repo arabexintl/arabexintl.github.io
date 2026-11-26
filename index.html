@@ -457,7 +457,7 @@ textarea.input { min-height: 90px; resize: vertical; }
     [style*="grid-template-columns:repeat(4"], [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
     footer { justify-content: center !important; text-align: center; }
   }
-  .ssbtn { display:inline-flex; align-items:center; gap:12px; margin-top:18px; padding:8px 10px 8px 8px; white-space:nowrap;
+  .ssbtn { --sa:#006C35; --sa-dark:#00562A; display:inline-flex; align-items:center; gap:12px; margin-top:18px; padding:8px 10px 8px 8px; white-space:nowrap;
     background:var(--color-accent-2); color:#fff !important; font-family:var(--font-heading); font-weight:600; font-size:16px; letter-spacing:.01em;
     border-radius:999px; box-shadow:0 6px 18px -6px color-mix(in srgb,var(--color-accent-2) 70%,transparent);
     position:relative; overflow:hidden; isolation:isolate;
@@ -465,10 +465,11 @@ textarea.input { min-height: 90px; resize: vertical; }
   .ssbtn::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
     background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%); transform:translateX(-120%);
     animation:ssshine 3.6s ease-in-out infinite 1.2s; }
-  .ssbtn-ic { width:36px; height:36px; border-radius:50%; background:#fff; color:var(--color-accent-2); display:inline-flex; align-items:center; justify-content:center; flex:none; }
+  .ssbtn-ic { width:36px; height:36px; border-radius:50%; background:#fff; color:var(--color-accent-2); display:inline-flex; transition:color .25s ease; align-items:center; justify-content:center; flex:none; }
   .ssbtn-ar { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; margin-inline-start:2px; border-radius:50%;
     background:rgba(255,255,255,.18); transition:transform .25s cubic-bezier(.16,.84,.44,1); }
-  .ssbtn:hover { background:var(--color-accent-2-600); transform:translateY(-2px); box-shadow:0 12px 26px -8px color-mix(in srgb,var(--color-accent-2) 80%,transparent); color:#fff !important; }
+  .ssbtn:hover { background:var(--sa); transform:translateY(-2px); box-shadow:0 12px 26px -8px color-mix(in srgb,var(--sa) 80%,transparent); color:#fff !important; }
+  .ssbtn:hover .ssbtn-ic { color:var(--sa); }
   .ssbtn:hover .ssbtn-ar { transform:translateX(4px); }
   .ssbtn:focus-visible { outline:3px solid var(--color-accent-2-700); outline-offset:3px; }
   html[dir="rtl"] .ssbtn-ar { transform:scaleX(-1); }
