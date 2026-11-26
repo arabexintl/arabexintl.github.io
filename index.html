@@ -445,18 +445,37 @@ textarea.input { min-height: 90px; resize: vertical; }
     .brandnav { flex-wrap: wrap; gap: 10px 16px !important; padding: 10px 20px !important; }
     .brandnav a[href^="#"] { display: none !important; }
     .brandnav img#navlogo { height: 40px !important; }
-    [style*="grid-template-columns:4fr 8fr"] { grid-template-columns: 1fr !important; gap: 18px !important; }
-    [style*="grid-template-columns:5fr 7fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
-    [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
-    [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr 1fr !important; }
-    [style*="top:47%"] { opacity: .3 !important; width: clamp(240px,60vw,340px) !important; }
+    [style*="grid-template-columns:4fr 8fr"], [style*="grid-template-columns: 4fr 8fr"] { grid-template-columns: 1fr !important; gap: 18px !important; }
+    [style*="grid-template-columns:5fr 7fr"], [style*="grid-template-columns: 5fr 7fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [style*="grid-template-columns:repeat(3"], [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns:repeat(4"], [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr 1fr !important; }
+    [style*="top:47%"], [style*="top: 47%"] { opacity: .3 !important; width: clamp(240px,60vw,340px) !important; }
     section[style*="min-height"] { min-height: 0 !important; padding-top: 24px !important; }
   }
   @media (max-width: 560px) {
-    [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
-    [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns:1fr 1fr"], [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns:repeat(4"], [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
     footer { justify-content: center !important; text-align: center; }
-  }  @keyframes cspulse { 0%,100% { opacity:.3; } 50% { opacity:1; } }
+  }
+  .ssbtn { display:inline-flex; align-items:center; gap:12px; margin-top:18px; padding:8px 10px 8px 8px; white-space:nowrap;
+    background:var(--color-accent-2); color:#fff !important; font-family:var(--font-heading); font-weight:600; font-size:16px; letter-spacing:.01em;
+    border-radius:999px; box-shadow:0 6px 18px -6px color-mix(in srgb,var(--color-accent-2) 70%,transparent);
+    position:relative; overflow:hidden; isolation:isolate;
+    transition:transform .25s cubic-bezier(.16,.84,.44,1), box-shadow .25s ease, background .25s ease; }
+  .ssbtn::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+    background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%); transform:translateX(-120%);
+    animation:ssshine 3.6s ease-in-out infinite 1.2s; }
+  .ssbtn-ic { width:36px; height:36px; border-radius:50%; background:#fff; color:var(--color-accent-2); display:inline-flex; align-items:center; justify-content:center; flex:none; }
+  .ssbtn-ar { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; margin-inline-start:2px; border-radius:50%;
+    background:rgba(255,255,255,.18); transition:transform .25s cubic-bezier(.16,.84,.44,1); }
+  .ssbtn:hover { background:var(--color-accent-2-600); transform:translateY(-2px); box-shadow:0 12px 26px -8px color-mix(in srgb,var(--color-accent-2) 80%,transparent); color:#fff !important; }
+  .ssbtn:hover .ssbtn-ar { transform:translateX(4px); }
+  .ssbtn:focus-visible { outline:3px solid var(--color-accent-2-700); outline-offset:3px; }
+  html[dir="rtl"] .ssbtn-ar { transform:scaleX(-1); }
+  html[dir="rtl"] .ssbtn:hover .ssbtn-ar { transform:scaleX(-1) translateX(4px); }
+  @keyframes ssshine { 0%,55% { transform:translateX(-120%); } 85%,100% { transform:translateX(120%); } }
+  @media (prefers-reduced-motion: reduce) { .ssbtn::after { animation:none; } .ssbtn, .ssbtn-ar { transition:none; } }
+  @keyframes cspulse { 0%,100% { opacity:.3; } 50% { opacity:1; } }
   @keyframes cstrace { from { stroke-dashoffset:400; } to { stroke-dashoffset:0; } }
   @keyframes csbob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
   @keyframes csbar { 0% { transform:translateX(-100%); } 100% { transform:translateX(240%); } }
@@ -619,7 +638,7 @@ textarea.input { min-height: 90px; resize: vertical; }
           <p data-i18n="fam2_p" style="font-size:15px;line-height:1.6;margin:12px 0 0;max-width:34ch;color:color-mix(in srgb,var(--color-text) 70%,transparent)">From choosing a course to a complete, submission-ready application.</p>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px 44px">
-          <div><h4 data-i18n="sub6_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Arab university scholarships</h4><p data-i18n="sub6_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;text-align:justify;hyphens:auto;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Application assistance for scholarships and admissions across the Arab world — Saudi Arabia, the UAE, Qatar and beyond.</p><a class="btn" href="https://arabexinternational.com/studyinsaudi" target="_blank" rel="noopener" data-i18n="sub6_btn" style="background:var(--color-accent-2);color:var(--color-bg);padding:10px 20px;font-size:14px;margin-top:16px" style-hover="background:var(--color-accent-2-600)">Study in Saudi →</a></div>
+          <div><h4 data-i18n="sub6_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Arab university scholarships</h4><p data-i18n="sub6_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;text-align:justify;hyphens:auto;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Application assistance for scholarships and admissions across the Arab world — Saudi Arabia, the UAE, Qatar and beyond.</p><a class="ssbtn" href="https://arabexinternational.com/studyinsaudi" target="_blank" rel="noopener"><span class="ssbtn-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5L2 9.5z"></path><path d="M6 11.5V16c0 1.3 2.7 3 6 3s6-1.7 6-3v-4.5"></path><path d="M22 9.5V15"></path></svg></span><span data-i18n="sub6_btn">Study in Saudi</span><span class="ssbtn-ar" aria-hidden="true">→</span></a></div>
           <div><h4 data-i18n="sub7_h4" style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.3;margin:0">Admissions &amp; document preparation</h4><p data-i18n="sub7_p" style="font-size:15px;line-height:1.6;margin:8px 0 0;text-align:justify;hyphens:auto;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Assembling, attesting and formatting every document a university or scholarship board asks for.</p></div>
         </div>
       </div>
@@ -803,7 +822,7 @@ class Component extends DCLogic {
     sub4_h4: 'المحتوى الإسلامي والديني', sub4_p: 'الخطب والنصوص الدينية والفتاوى، تُعامل بالسياق والاحترام المناسبين.',
     sub5_h4: 'الترجمة المرئية للأفلام والمحتوى الإعلامي', sub5_p: 'ترجمة مرئية إلى العربية لمحتوى بأي لغة، وبأي لغة للمحتوى العربي — للفيديوهات والأفلام الوثائقية وغيرها من المحتوى الإعلامي.',
     fam2_h3: 'التوجيه التعليمي', fam2_p: 'من اختيار التخصص إلى طلب تقديم كامل وجاهز.',
-    sub6_h4: 'المنح الجامعية في الدول العربية', sub6_p: 'مساعدة في التقديم للمنح والقبول الجامعي في الدول العربية — السعودية والإمارات وقطر وغيرها.', sub6_btn: 'ادرس في السعودية ←',
+    sub6_h4: 'المنح الجامعية في الدول العربية', sub6_p: 'مساعدة في التقديم للمنح والقبول الجامعي في الدول العربية — السعودية والإمارات وقطر وغيرها.', sub6_btn: 'ادرس في السعودية',
     sub7_h4: 'إعداد ملفات القبول والوثائق', sub7_p: 'تجميع وتصديق وتنسيق كل وثيقة تطلبها الجامعة أو جهة المنحة.',
     fam3_h3: 'الوظائف وطلبات العمل الخليجية', fam3_p: 'أوراق رسمية تلبي معايير أصحاب العمل والسفارات في الخليج.',
     sub8_h4: 'ترجمة السيرة الذاتية', sub8_p: 'سير ذاتية مهنية بالعربية أو الإنجليزية أو باللغة التي يطلبها صاحب العمل، مُهيّأة لسوق العمل الخليجي والدولي.',
@@ -952,7 +971,7 @@ class Component extends DCLogic {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     // 1 — mouse parallax on the hero globe
-    const globe = document.querySelector('section [style*="top:47%"]');
+    const globe = document.querySelector('section [style*="top:47%"], section [style*="top: 47%"]');
     if (globe) {
       const hero = globe.closest('section');
       const move = (e) => {
